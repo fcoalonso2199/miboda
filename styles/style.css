@@ -175,7 +175,7 @@ position: fixed;
     text-align: center;
     padding: 20px;
     /* El gradiente oscuro suave ayuda a que el texto resalte sobre la foto */
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images\geminiuno.webp') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('geminiuno.webp') no-repeat center center/cover;
     color: #ffffff; /* Cambiamos el texto a blanco para que destaque con la foto */
 }
 
