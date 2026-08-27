@@ -17,19 +17,17 @@
     </audio>
 
     <!-- Pantalla Inicial: La Carta -->
-    <div id="envelope-overlay" class="envelope-overlay">
-        <div class="envelope-container" onclick="openEnvelope()">
-            <div class="envelope">
-                <div class="flap"></div>
-                <div class="letter-preview">
-                    <span class="preview-subtitle">Nuestra Boda</span>
-                    <h3>Alejandra & Francisco</h3>
-                    <p class="click-instruction">Haz clic para abrir</p>
-                </div>
+     <div class="envelope-container" id="envelopeContainer" onclick="openEnvelope()">
+        <div class="envelope">
+            <div class="flap"></div>
+            <div class="pocket"></div>
+            <div class="letter-preview">
+                <p>Estás invitado/a</p>
+                <span>Toca para abrir</span>
             </div>
         </div>
     </div>
-
+    
     <!-- Contenido Principal de la Invitación (Oculto al inicio) -->
     <div id="main-content" class="main-content hidden">
 
