@@ -22,6 +22,74 @@ body {
     overflow-x: hidden;
 }
 
+/* Pantalla de la Carta / Sobre Inicial */
+.envelope-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #242424;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.6s ease;
+}
+
+.envelope-container {
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.envelope {
+    background: var(--bg-color);
+    width: 320px;
+    height: 220px;
+    padding: 30px;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    position: relative;
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.envelope:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.preview-subtitle {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.envelope h3 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.click-instruction {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #777;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+/* Utilidad para ocultar elementos */
+.hidden {
+    display: none;
+}
+
 /* Reproductor de Música Flotante */
 .music-player {
     position: fixed;
@@ -54,7 +122,7 @@ body {
     justify-content: center;
     text-align: center;
     padding: 20px;
-    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('images/foto.webp') no-repeat center center/cover;
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('tu-imagen-fondo.jpg') no-repeat center center/cover;
 }
 
 .hero-content .subtitle {

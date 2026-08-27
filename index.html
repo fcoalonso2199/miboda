@@ -3,79 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestra Boda | Alejandra & Francisco</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <title>Nuestra Boda | Sofía & Francisco</title>
+    <link rel="stylesheet" href="style.css">
     <!-- Fuentes de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Reproductor de Música Flotante -->
-    <div class="music-player">
-        <audio id="bg-music" loop>
-            <source src="tu-cancion.mp3" type="audio/mpeg">
-            Tu navegador no soporta el elemento de audio.
-        </audio>
-        <button id="music-btn" onclick="toggleMusic()">♪ Reproducir Música</button>
+    <!-- Audio de Fondo -->
+    <audio id="bg-music" loop>
+        <source src="tu-cancion.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- Pantalla Inicial: La Carta -->
+    <div id="envelope-overlay" class="envelope-overlay">
+        <div class="envelope-container" onclick="openEnvelope()">
+            <div class="envelope">
+                <div class="flap"></div>
+                <div class="letter-preview">
+                    <span class="preview-subtitle">Nuestra Boda</span>
+                    <h3>Sofía & Francisco</h3>
+                    <p class="click-instruction">Haz clic para abrir</p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Sección Hero / Portada -->
-    <header class="hero">
-        <div class="hero-content">
-            <span class="subtitle">NOS CASAMOS</span>
-            <h1>Alejandra <span class="amp">&</span> Francisco</h1>
-            <p class="date">14 . 11 . 2026</p>
+    <!-- Contenido Principal de la Invitación (Oculto al inicio) -->
+    <div id="main-content" class="main-content hidden">
+
+        <!-- Botón flotante para pausar/reproducir música -->
+        <div class="music-player">
+            <button id="music-btn" onclick="toggleMusic()">❚❚ Pausar Música</button>
         </div>
-    </header>
 
-    <!-- Sección de Cuenta Regresiva -->
-    <section class="countdown-section">
-        <h2>Faltan</h2>
-        <div id="countdown" class="countdown-grid">
-            <div class="time-box"><span id="days">00</span><p>Días</p></div>
-            <div class="time-box"><span id="hours">00</span><p>Horas</p></div>
-            <div class="time-box"><span id="minutes">00</span><p>Minutos</p></div>
-            <div class="time-box"><span id="seconds">00</span><p>Segundos</p></div>
-        </div>
-    </section>
+        <!-- Sección Hero / Portada -->
+        <header class="hero">
+            <div class="hero-content">
+                <span class="subtitle">NOS CASAMOS</span>
+                <h1>Sofía <span class="amp">&</span> Francisco</h1>
+                <p class="date">14 . 11 . 2026</p>
+            </div>
+        </header>
 
-    <!-- Detalles del Evento -->
-    <section class="details">
-        <div class="detail-card">
-            <h3>Ceremonia</h3>
-            <p>Parroquia de Nuestra Señora de la Salud</p>
-            <p>17:00 hrs</p>
-        </div>
-        <div class="detail-card">
-            <h3>Recepción</h3>
-            <p>Jardín Los Encinos</p>
-            <p>19:30 hrs</p>
-        </div>
-    </section>
+        <!-- Sección de Cuenta Regresiva -->
+        <section class="countdown-section">
+            <h2>Faltan</h2>
+            <div id="countdown" class="countdown-grid">
+                <div class="time-box"><span id="days">00</span><p>Días</p></div>
+                <div class="time-box"><span id="hours">00</span><p>Horas</p></div>
+                <div class="time-box"><span id="minutes">00</span><p>Minutos</p></div>
+                <div class="time-box"><span id="seconds">00</span><p>Segundos</p></div>
+            </div>
+        </section>
 
-    <!-- Sección Interactiva: Confirmación de Asistencia (RSVP) -->
-    <section class="rsvp-section">
-        <h2>¿Nos acompañarás?</h2>
-        <p>Por favor, confirma tu asistencia antes del 1 de octubre.</p>
-        <form class="rsvp-form" onsubmit="handleRsvp(event)">
-            <input type="text" placeholder="Tu Nombre Completo" required>
-            <select required>
-                <option value="" disabled selected>¿Asistirás?</option>
-                <option value="yes">¡Sí, ahí estaré!</option>
-                <option value="no">Lo siento, no podré asistir</option>
-            </select>
-            <button type="submit" class="btn-submit">Confirmar Asistencia</button>
-        </form>
-    </section>
+        <!-- Detalles del Evento -->
+        <section class="details">
+            <div class="detail-card">
+                <h3>Ceremonia</h3>
+                <p>Parroquia de Nuestra Señora de la Salud</p>
+                <p>17:00 hrs</p>
+            </div>
+            <div class="detail-card">
+                <h3>Recepción</h3>
+                <p>Jardín Los Encinos</p>
+                <p>19:30 hrs</p>
+            </div>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>Esperamos celebrar este gran día contigo.</p>
-    </footer>
+        <!-- Sección Interactiva: Confirmación de Asistencia (RSVP) -->
+        <section class="rsvp-section">
+            <h2>¿Nos acompañarás?</h2>
+            <p>Por favor, confirma tu asistencia antes del 1 de octubre.</p>
+            <form class="rsvp-form" onsubmit="handleRsvp(event)">
+                <input type="text" placeholder="Tu Nombre Completo" required>
+                <select required>
+                    <option value="" disabled selected>¿Asistirás?</option>
+                    <option value="yes">¡Sí, ahí estaré!</option>
+                    <option value="no">Lo siento, no podré asistir</option>
+                </select>
+                <button type="submit" class="btn-submit">Confirmar Asistencia</button>
+            </form>
+        </section>
 
-    <!-- Script básico para música y cuenta regresiva -->
+        <!-- Footer -->
+        <footer>
+            <p>Esperamos celebrar este gran día contigo.</p>
+        </footer>
+    </div>
+
+    <!-- Script de Animaciones, Música y Cuenta Regresiva -->
     <script>
-        // Control de música
+        // Función para abrir la carta
+        function openEnvelope() {
+            const overlay = document.getElementById('envelope-overlay');
+            const mainContent = document.getElementById('main-content');
+            const music = document.getElementById('bg-music');
+
+            // Reproducir música
+            music.play().catch(error => {
+                console.log("El navegador requirió interacción adicional para el audio:", error);
+            });
+
+            // Animación de salida de la carta y aparición del contenido
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                mainContent.classList.remove('hidden');
+            }, 600);
+        }
+
+        // Control manual de música
         function toggleMusic() {
             const music = document.getElementById('bg-music');
             const btn = document.getElementById('music-btn');
@@ -88,7 +127,7 @@
             }
         }
 
-        // Cuenta regresiva (Configura tu fecha objetivo aquí)
+        // Cuenta regresiva
         const weddingDate = new Date("Nov 14, 2026 17:00:00").getTime();
         const timer = setInterval(function() {
             const now = new Date().getTime();
