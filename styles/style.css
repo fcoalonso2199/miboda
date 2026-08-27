@@ -174,9 +174,19 @@ position: fixed;
     justify-content: center;
     text-align: center;
     padding: 20px;
-    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('images/foto.webp') no-repeat center center/cover;
+    /* El gradiente oscuro suave ayuda a que el texto resalte sobre la foto */
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images\geminiuno.webp') no-repeat center center/cover;
+    color: #ffffff; /* Cambiamos el texto a blanco para que destaque con la foto */
 }
 
+/* Ajuste opcional para que los subtítulos y la fecha resalten bien sobre la foto */
+.hero-content .subtitle {
+    color: #f4f1ea;
+}
+
+.hero-content .date {
+    color: #f4f1ea;
+}
 .hero-content .subtitle {
     font-size: 0.9rem;
     letter-spacing: 4px;
