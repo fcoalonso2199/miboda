@@ -1,0 +1,216 @@
+/* Estilos Generales y Variables */
+:root {
+    --bg-color: #fdfbf7;
+    --text-color: #2c2c2c;
+    --accent-color: #c5a059;
+    --light-gray: #f4f1ea;
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Reproductor de Música Flotante */
+.music-player {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.music-player button {
+    background: var(--text-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: background 0.3s ease;
+}
+
+.music-player button:hover {
+    background: var(--accent-color);
+}
+
+/* Sección Hero */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('tu-imagen-fondo.jpg') no-repeat center center/cover;
+}
+
+.hero-content .subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-color);
+    display: block;
+    margin-bottom: 15px;
+}
+
+.hero-content h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.hero-content .amp {
+    color: var(--accent-color);
+    font-style: italic;
+}
+
+.hero-content .date {
+    font-size: 1.1rem;
+    letter-spacing: 3px;
+    margin-top: 15px;
+}
+
+/* Cuenta Regresiva */
+.countdown-section {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: var(--light-gray);
+}
+
+.countdown-section h2 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.countdown-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.time-box {
+    background: var(--bg-color);
+    padding: 15px;
+    border-radius: 8px;
+    min-width: 80px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.time-box span {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    display: block;
+    color: var(--accent-color);
+}
+
+.time-box p {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Detalles */
+.details {
+    padding: 90px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.detail-card {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1;
+    min-width: 280px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+    border-top: 3px solid var(--accent-color);
+}
+
+.detail-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+/* RSVP */
+.rsvp-section {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: var(--light-gray);
+}
+
+.rsvp-section h2 {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.rsvp-section p {
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.rsvp-form {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.rsvp-form input, .rsvp-form select {
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    background: white;
+}
+
+.btn-submit {
+    background: var(--text-color);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: background 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: var(--accent-color);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: #776;
+}

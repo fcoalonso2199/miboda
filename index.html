@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Boda | Sofía & Francisco</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fuentes de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Reproductor de Música Flotante -->
+    <div class="music-player">
+        <audio id="bg-music" loop>
+            <source src="tu-cancion.mp3" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+        <button id="music-btn" onclick="toggleMusic()">♪ Reproducir Música</button>
+    </div>
+
+    <!-- Sección Hero / Portada -->
+    <header class="hero">
+        <div class="hero-content">
+            <span class="subtitle">NOS CASAMOS</span>
+            <h1>Sofía <span class="amp">&</span> Francisco</h1>
+            <p class="date">14 . 11 . 2026</p>
+        </div>
+    </header>
+
+    <!-- Sección de Cuenta Regresiva -->
+    <section class="countdown-section">
+        <h2>Faltan</h2>
+        <div id="countdown" class="countdown-grid">
+            <div class="time-box"><span id="days">00</span><p>Días</p></div>
+            <div class="time-box"><span id="hours">00</span><p>Horas</p></div>
+            <div class="time-box"><span id="minutes">00</span><p>Minutos</p></div>
+            <div class="time-box"><span id="seconds">00</span><p>Segundos</p></div>
+        </div>
+    </section>
+
+    <!-- Detalles del Evento -->
+    <section class="details">
+        <div class="detail-card">
+            <h3>Ceremonia</h3>
+            <p>Parroquia de Nuestra Señora de la Salud</p>
+            <p>17:00 hrs</p>
+        </div>
+        <div class="detail-card">
+            <h3>Recepción</h3>
+            <p>Jardín Los Encinos</p>
+            <p>19:30 hrs</p>
+        </div>
+    </section>
+
+    <!-- Sección Interactiva: Confirmación de Asistencia (RSVP) -->
+    <section class="rsvp-section">
+        <h2>¿Nos acompañarás?</h2>
+        <p>Por favor, confirma tu asistencia antes del 1 de octubre.</p>
+        <form class="rsvp-form" onsubmit="handleRsvp(event)">
+            <input type="text" placeholder="Tu Nombre Completo" required>
+            <select required>
+                <option value="" disabled selected>¿Asistirás?</option>
+                <option value="yes">¡Sí, ahí estaré!</option>
+                <option value="no">Lo siento, no podré asistir</option>
+            </select>
+            <button type="submit" class="btn-submit">Confirmar Asistencia</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Esperamos celebrar este gran día contigo.</p>
+    </footer>
+
+    <!-- Script básico para música y cuenta regresiva -->
+    <script>
+        // Control de música
+        function toggleMusic() {
+            const music = document.getElementById('bg-music');
+            const btn = document.getElementById('music-btn');
+            if (music.paused) {
+                music.play();
+                btn.textContent = "❚❚ Pausar Música";
+            } else {
+                music.pause();
+                btn.textContent = "♪ Reproducir Música";
+            }
+        }
+
+        // Cuenta regresiva (Configura tu fecha objetivo aquí)
+        const weddingDate = new Date("Nov 14, 2026 17:00:00").getTime();
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown").innerHTML = "¡Es el gran día!";
+            }
+        }, 1000);
+
+        function handleRsvp(e) {
+            e.preventDefault();
+            alert("¡Muchas gracias por confirmar tu respuesta!");
+        }
+    </script>
+</body>
+</html>
