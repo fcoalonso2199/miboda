@@ -23,99 +23,105 @@ body {
 }
 
 /* Pantalla de la Carta / Sobre Inicial */
-/* Pantalla de la Carta / Sobre Inicial */
-.envelope-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 320px;
-    height: 220px;
-    cursor: pointer;
-    transition: transform 0.5s ease, opacity 0.8s ease;
-    z-index: 9999;
-}
-
-.envelope {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-color: #e3ded6;
-    border-radius: 6px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.flap {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    border-left: 160px solid transparent;
-    border-right: 160px solid transparent;
-    border-top: 110px solid #d4cec3;
-    transform-origin: top;
-    transition: transform 0.6s ease;
-    z-index: 3;
-}
-
-.pocket {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    border-left: 160px solid #e8e3da;
-    border-right: 160px solid #e8e3da;
-    border-bottom: 110px solid #dcd5cb;
-    border-top: 110px solid transparent;
-    border-radius: 0 0 6px 6px;
-    z-index: 2;
-}
-
-.letter-preview {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    z-index: 1;
-}
-
-.letter-preview p {
-    font-family: 'Great Vibes', cursive;
-    font-size: 24px;
-    color: #6b635b;
-}
-
-.letter-preview span {
-    font-size: 11px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #8c8378;
-}
-
-/* Animación de apertura del sobre */
+/* Pantalla de fondo que centra el sobre */
 .envelope-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #242424; /* Fondo oscuro elegante */
+    background-color: var(--bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    transition: opacity 0.6s ease;
+    transition: opacity 0.8s ease;
 }
 
+/* Contenedor del sobre */
 .envelope-container {
     position: relative;
-    width: 320px;
-    height: 220px;
+    width: 380px;
+    height: 240px;
     cursor: pointer;
     perspective: 1000px;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Cuerpo principal del sobre */
+.envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #e3ded6;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Solapa superior (la que se abre) */
+.flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 190px solid transparent;
+    border-right: 190px solid transparent;
+    border-top: 125px solid #d4cec3;
+    transform-origin: top;
+    transition: transform 0.6s ease;
+    z-index: 4;
+}
+
+/* Solapa inferior */
+.pocket-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 190px solid transparent;
+    border-right: 190px solid transparent;
+    border-bottom: 120px solid #dbd5cc;
+    z-index: 3;
+}
+
+/* Solapa izquierda */
+.pocket-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 120px solid transparent;
+    border-bottom: 120px solid transparent;
+    border-left: 190px solid #e8e3da;
+    z-index: 2;
+}
+
+/* Solapa derecha */
+.pocket-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-top: 120px solid transparent;
+    border-bottom: 120px solid transparent;
+    border-right: 190px solid #e8e3da;
+    z-index: 1;
+}
+
+/* Animación al hacer clic (abre la solapa y desvanece el sobre) */
+.envelope-container.open .flap {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.envelope-container.open {
+    transform: scale(1.1);
+    opacity: 0;
+    pointer-events: none;
 }
 
 /* --- ESTILOS DE LA TARJETA DE INVITACIÓN --- */
