@@ -191,7 +191,7 @@ position: fixed;
     font-size: 0.9rem;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: var(--text-color);
+    color: #ffffff;
     display: block;
     margin-bottom: 15px;
 }
