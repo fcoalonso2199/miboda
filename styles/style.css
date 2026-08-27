@@ -96,15 +96,26 @@ body {
 }
 
 /* Animación de apertura del sobre */
-.envelope-container.open .flap {
-    transform: rotateX(180deg);
-    z-index: 0;
+.envelope-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #242424; /* Fondo oscuro elegante */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.6s ease;
 }
 
-.envelope-container.open {
-    transform: scale(1.2);
-    opacity: 0;
-    pointer-events: none;
+.envelope-container {
+    position: relative;
+    width: 320px;
+    height: 220px;
+    cursor: pointer;
+    perspective: 1000px;
 }
 
 /* --- ESTILOS DE LA TARJETA DE INVITACIÓN --- */

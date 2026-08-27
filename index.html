@@ -16,18 +16,20 @@
         Tu navegador no soporta el elemento de audio.
     </audio>
 
-    <!-- Pantalla Inicial: La Carta -->
-     <div class="envelope-container" id="envelopeContainer" onclick="openEnvelope()">
+    <!-- Pantalla Inicial: La Carta Centrada -->
+<div id="envelope-overlay" class="envelope-overlay">
+    <div class="envelope-container" onclick="openEnvelope()">
         <div class="envelope">
             <div class="flap"></div>
             <div class="pocket"></div>
             <div class="letter-preview">
-                <p>Estás invitado/a</p>
-                <span>Toca para abrir</span>
+                <span>ESTÁS INVITADO</span>
+                <p>Nuestra Boda</p>
             </div>
         </div>
     </div>
-    
+</div>
+
     <!-- Contenido Principal de la Invitación (Oculto al inicio) -->
     <div id="main-content" class="main-content hidden">
 
